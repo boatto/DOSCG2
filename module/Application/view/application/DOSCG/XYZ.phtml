@@ -1,0 +1,45 @@
+<div class="jumbotron">
+    <h4><span class="zf-green">Finding character XYZ </span></h4>
+
+    <p>
+        Finding character XYZ in textbox example data format (X,Y,5,9,15,23,Z) 
+    </p>
+	<p><input type="textbox" id="XYZ" name="XYZ" value="X,Y,5,9,15,23,Z"></p>
+	<p><h6><span class="zf-green">Result :  </span><label id="ResultXYZ" name="ResultXYZ" >    </label></h6></p>
+	<p><a id="LinkA" class="btn btn-success btn-lg" href="#">Finding &raquo;</a></p>
+</div>
+
+<script>
+
+
+    jQuery(document).ready(function ($) {
+        
+		
+        $("#LinkA").click(function() { //event click
+			
+			findingXYZ(); //call function
+        });
+    });
+
+function findingXYZ()
+{
+	$("#ResultXYZ").html('');  //clear Result
+	var xyz = $('#XYZ').val().toUpperCase(); // support sensitive case 
+	var Result = ''; // declear variable
+	if(xyz == '' || xyz == ' ' || xyz == null) // chach data error
+	{
+		 Result = 'Input data error'; // set result data 
+	}
+	else
+	{
+		 Result = xyz.match(/X|Y|Z/g); // Search match case XYZ result data 
+	}
+	
+	$("#ResultXYZ").append(Result); // Show Result
+	
+}
+
+    
+</script>
+
+

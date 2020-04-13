@@ -1,0 +1,63 @@
+<div class="jumbotron">
+    <h4><span class="zf-green">Finding Value B and C </span></h4>
+
+    <p>
+        Finding value follow Equation : If A = 21, A + B = 23, A + C = -21 
+    </p>
+	<p><label> Value A     =  </label><input type="textbox" id="A" name="A" value="21"></p>
+	<p><label> Value A + B =  </label><input type="textbox" id="APlusB" name="APlusB" value="23"></p>
+	<p><label> Value A + C =  </label><input type="textbox" id="APlusC" name="APlusC" value="-21"></p>
+	
+	<p><h6><span class="zf-green">Value B =   </span><label id="ResultB" name="ResultB" >    </label></h6></p>
+	<p><h6><span class="zf-green">Value C =   </span><label id="ResultC" name="ResultC" >    </label></h6></p>
+	<p><a id="LinkA" class="btn btn-success btn-lg" href="#">Finding &raquo;</a></p>
+</div>
+
+<script>
+
+
+    jQuery(document).ready(function ($) {
+        
+		
+        $("#LinkA").click(function() { //event click
+			
+			findingBC(); //call function
+        });
+    });
+
+function findingBC()
+{
+	$("#ResultB").html('');//clear Result
+	$("#ResultC").html('');//clear Result
+	var A = $('#A').val(); // declear variable
+	var APlusB = $('#APlusB').val(); // declear variable
+	var APlusC = $('#APlusC').val();// declear variable
+	var Result_B = '';// declear variable
+	var Result_C = '';// declear variable
+	if(A == '' || A == ' ' || A == null || APlusB == '' || APlusB == ' ' || APlusB == null)// chach data error
+	{
+		 Result_B= 'Input data error';// set result data 
+	}
+	else
+	{
+		 Result_B =  APlusB - A;//cal value
+	}
+	
+	if(A == '' || A == ' ' || A == null || APlusC == '' || APlusC == ' ' || APlusC == null)// chach data error
+	{
+		 Result_C= 'Input data error';// set result data 
+	}
+	else
+	{
+		 Result_C = APlusC - A; //cal value
+	}
+	
+	$("#ResultB").append(Result_B);// Show Result
+	$("#ResultC").append(Result_C);// Show Result
+	
+}
+
+    
+</script>
+
+
